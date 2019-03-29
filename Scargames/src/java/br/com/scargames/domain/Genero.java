@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="genero")
+@Table(name="Genero")
 public class Genero implements Serializable{
     
     @Id

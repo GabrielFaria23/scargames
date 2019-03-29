@@ -1,7 +1,6 @@
 package br.com.scargames.domain;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -32,11 +31,11 @@ public class Cartao implements Serializable{
     @Column(name="vencimento")
     private Date vencimento;
     
-    @JoinColumn(name="bandeira_cartao_id", referencedColumnName="id")
+    @JoinColumn(name="bandeira", referencedColumnName="id")
     @ManyToOne(optional=false)
     private Bandeira bandeira;
     
-    @JoinColumn(name="usuario_cartao_id",referencedColumnName="id")
+    @JoinColumn(name="usuario",referencedColumnName="id")
     @ManyToOne(optional=false)
     private Usuario usuario;
 

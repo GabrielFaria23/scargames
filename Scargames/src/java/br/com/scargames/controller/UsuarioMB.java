@@ -6,11 +6,10 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
-
 @ManagedBean(name = "usuarioMB")
 @RequestScoped
 public class UsuarioMB implements Serializable{
-    
+
     private Usuario usuario;
     private String email;
     private String senha;
@@ -18,11 +17,16 @@ public class UsuarioMB implements Serializable{
     public UsuarioMB() {
     }
     
+    public void inicializarHibernate(){
+        UsuarioService service = new UsuarioService();
+        service.inicializarHibernate();
+    }
+    
     public String autenticar(){
         UsuarioService service = new UsuarioService();
-        usuario = new Usuario(email,senha);
+        usuario = new Usuario(email, senha);
         if (service.autenticar(usuario)){
-            return"private/index.xhtml?faces-redirect=true";
+            return "/private/index.xhtml?faces-redirect=true";
         }else{
             return null;
         }
@@ -51,5 +55,4 @@ public class UsuarioMB implements Serializable{
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
 }

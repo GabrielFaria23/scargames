@@ -48,14 +48,14 @@ Contributor(s):
     <property name="hibernate.connection.password">admin</property>
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.jdbc.use_get_generated_keys">true</property>
-    <property name="br.com.scargames.domain.Bandeira"></property>
-    <property name="br.com.scargames.domain.Biblioteca"></property>
-    <property name="br.com.scargames.domain.Cartao"></property>
-    <property name="br.com.scargames.domain.Cidade"></property>
-    <property name="br.com.scargames.domain.Endereco"></property>
-    <property name="br.com.scargames.domain.Genero"></property>
-    <property name="br.com.scargames.domain.Jogo"></property>
-    <property name="br.com.scargames.domain.Produtora"></property>
-    <property name="br.com.scargames.domain.Usuario"></property>
+    <mapping class="br.com.scargames.domain.Bandeira"></mapping>
+    <mapping class="br.com.scargames.domain.Biblioteca"></mapping>
+    <mapping class="br.com.scargames.domain.Cartao"></mapping>
+    <mapping class="br.com.scargames.domain.Cidade"></mapping>
+    <mapping class="br.com.scargames.domain.Endereco"></mapping>
+    <mapping class="br.com.scargames.domain.Genero"></mapping>
+    <mapping class="br.com.scargames.domain.Jogo"></mapping>
+    <mapping class="br.com.scargames.domain.Produtora"></mapping>
+    <mapping class="br.com.scargames.domain.Usuario"></mapping>
   </session-factory>
 </hibernate-configuration>

@@ -18,7 +18,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 
 @Entity
-@Table(name="usuario")
+@Table(name="Usuario")
 public class Usuario implements Serializable{
     
     @Id
@@ -66,13 +66,13 @@ public class Usuario implements Serializable{
     @OneToMany(mappedBy="id")
     private List<Cartao> cartoes;
     
-    @OneToOne(mappedBy="id")
+    @OneToOne(mappedBy="usuario")
     private Biblioteca biblioteca;
     
     public Usuario() {
     }
     
-    public Usuario(String email, String senha) {
+    public Usuario(String email, String senha){
         this.email = email;
         this.senha = senha;
     }

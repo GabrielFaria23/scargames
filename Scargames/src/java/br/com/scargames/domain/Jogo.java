@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="jogo")
+@Table(name="Jogo")
 public class Jogo implements Serializable {
     
     @Id
@@ -45,11 +45,11 @@ public class Jogo implements Serializable {
     @Column(name="nota")
     private Double nota;
     
-    @JoinColumn(name="genero_jogo_id",referencedColumnName="id")
+    @JoinColumn(name="genero",referencedColumnName="id")
     @ManyToOne(optional=false)
     private Genero genero;
     
-    @JoinColumn(name="produtora_jogo_id",referencedColumnName="id")
+    @JoinColumn(name="produtora",referencedColumnName="id")
     @ManyToOne(optional=false)
     private Produtora produtora;
     
