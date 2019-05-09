@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="Jogo")
+@Table(name="jogo")
 public class Jogo implements Serializable {
     
     @Id

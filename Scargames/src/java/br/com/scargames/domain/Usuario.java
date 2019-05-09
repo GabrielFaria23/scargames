@@ -18,7 +18,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 
 @Entity
-@Table(name="Usuario")
+@Table(name="usuario")
 public class Usuario implements Serializable{
     
     @Id

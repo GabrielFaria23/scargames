@@ -2,6 +2,8 @@ package br.com.scargames.controller;
 
 import br.com.scargames.domain.Usuario;
 import br.com.scargames.services.UsuarioService;
+import br.com.scargames.util.UtilMessages;
+import com.mysql.jdbc.Util;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -26,8 +28,10 @@ public class UsuarioMB implements Serializable{
         UsuarioService service = new UsuarioService();
         usuario = new Usuario(email, senha);
         if (service.autenticar(usuario)){
+            
             return "/private/index.xhtml?faces-redirect=true";
         }else{
+            UtilMessages.messageError("Usuário ou senha incorretos");
             return null;
         }
     }

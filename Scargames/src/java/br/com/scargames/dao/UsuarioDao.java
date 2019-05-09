@@ -10,7 +10,7 @@ public class UsuarioDao {
     public void inicializarHibernate(){
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        session.getTransaction().commit();//finaliza uma transação
+        session.getTransaction().commit();
     }
 
     public List<Usuario> listar(){
