@@ -36,7 +36,7 @@ public class BandeiraMB implements Serializable{
             this.listar();
             return "list.xhtml?faces-redirect=true";
         }else{
-            UtilMessages.messageError("Ocorreu um erro ao cadastrar a bandeira");
+            UtilMessages.messageError("Ocorreu um erro ao cadastrar a bandeira!");
             return null;
         }
     }
@@ -48,7 +48,7 @@ public class BandeiraMB implements Serializable{
             this.listar();
             return "list.xhtml?faces-redirect=true";
         }else{
-            UtilMessages.messageError("Ocorreu um erro ao alterar a bandeira");
+            UtilMessages.messageError("Ocorreu um erro ao alterar a bandeira!");
             return null;
         }
     }
@@ -61,11 +61,11 @@ public class BandeiraMB implements Serializable{
     public String excluir(Bandeira bandeira){
         BandeiraService service = new BandeiraService();
         if (service.excluir(bandeira)){
-            UtilMessages.messageInfo("Bandeira excluida com sucesso!");
+            UtilMessages.messageInfo("Bandeira excluída com sucesso!");
             this.listar();
             return "list.xhtml?faces-redirect=true";
         }else{
-            UtilMessages.messageError("Ocorreu um erro ao excluir a bandeira");
+            UtilMessages.messageError("Ocorreu um erro ao excluir a bandeira!");
             return null;
         }
     }
