@@ -22,7 +22,7 @@ public class GeneroMB implements Serializable{
         generos = service.listar();
     }
     
-    public void novo(){
+        public void novo(){
         genero = new Genero();
     }
     

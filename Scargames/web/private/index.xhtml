@@ -1,11 +1,16 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
     <ui:composition template="templates/template.xhtml">
         <ui:define name="titleWindow">ScarGames</ui:define>
         <ui:define name="content">
-            
+            <div align="center">
+                <p:galleria value="#{imagens.images}" var="image" panelWidth="300" panelHeight="200" showCaption="true">
+                    <p:graphicImage url="/resources/img2/#{image}" title="#{image}"/>
+                </p:galleria>   
+            </div>
         </ui:define>
     </ui:composition>
 </html>
