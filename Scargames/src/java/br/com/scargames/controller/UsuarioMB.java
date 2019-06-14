@@ -1,6 +1,8 @@
 package br.com.scargames.controller;
 
 import br.com.scargames.domain.Usuario;
+import br.com.scargames.domain.Usuario;
+import br.com.scargames.services.UsuarioService;
 import br.com.scargames.services.UsuarioService;
 import br.com.scargames.util.UtilMessages;
 import java.io.Serializable;
@@ -36,6 +38,56 @@ public class UsuarioMB implements Serializable{
     public void listar(){
         UsuarioService service = new UsuarioService();
         usuarios = service.listar();
+    }
+    
+    public String novo(){
+        usuario = new Usuario();
+        return "new.xhtml?faces-redirect=true";
+    }
+    
+    public String inserir(){
+        UsuarioService service = new UsuarioService();
+        if (service.inserir(usuario)){
+            UtilMessages.messageInfo("Usuario cadastrada com sucesso!");
+            this.listar();
+            return "list.xhtml?faces-redirect=true";
+        }else{
+            UtilMessages.messageError("Ocorreu um erro ao cadastrar a usuario!");
+            return null;
+        }
+    }
+    
+    public String alterar(){
+        UsuarioService service = new UsuarioService();
+        if (service.alterar(usuario)){
+            UtilMessages.messageInfo("Usuario alterada com sucesso!");
+            this.listar();
+            return "list.xhtml?faces-redirect=true";
+        }else{
+            UtilMessages.messageError("Ocorreu um erro ao alterar a usuario!");
+            return null;
+        }
+    }
+    
+    public String carregarDados(Usuario usuario){
+        this.usuario = usuario;
+        return "alter.xhtml?faces-redirect=true";
+    }
+    
+    public String excluir(Usuario usuario){
+        UsuarioService service = new UsuarioService();
+        if (service.excluir(usuario)){
+            UtilMessages.messageInfo("Usuario excluída com sucesso!");
+            this.listar();
+            return "list.xhtml?faces-redirect=true";
+        }else{
+            UtilMessages.messageError("Ocorreu um erro ao excluir a usuario!");
+            return null;
+        }
+    }
+    
+    public String cancelar(){
+        return "list.xhtml?faces-redirect=true";
     }
     
     public String autenticar(){

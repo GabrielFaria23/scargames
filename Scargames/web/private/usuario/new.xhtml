@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="../templates/template.xhtml">
+        <ui:define name="titleWindow">ScarGames - Usuarios</ui:define>
+        <ui:define name="content">
+            <div class="ui-g">
+                <div class="ui-g-1"></div>
+                <div class="ui-g-10">
+                    <h1>Cadastro de Usuarios</h1>
+                </div>
+                <div class="ui-g-1"></div>
+                
+                <div class="ui-g-1"></div>
+                <div class="ui-g-5">
+                    <p:inputText id="nome" placeholder="Nome"
+                                 value="#{usuarioMB.usuario.nome}"
+                                 style="width: 90%;"/>
+                </div>     
+                <div class="ui-g-5">
+                    <p:inputText id="email" placeholder="Email"
+                                 value="#{usuarioMB.usuario.email}"
+                                 style="width: 100%;"/>
+                </div>  
+                <div class="ui-g-1"></div>
+                
+                
+                <div class="ui-g-1"/>
+                <div class="ui-g-4">    
+                    <p:selectOneRadio id="sexo" value="#{usuarioMB.usuario.sexo}" style="width: 100%">
+                        <f:selectItem itemLabel="Masculino" itemValue="M" />
+                        <f:selectItem itemLabel="Feminino" itemValue="F" />
+                    </p:selectOneRadio>
+                </div>
+                <div class="ui-g-1"/>
+                <div class="ui-g-3"> 
+                <p:inputMask mask="999.999.999-99" id="cpf" placeholder="CPF"
+                             value="#{usuarioMB.usuario.cpf}"
+                             style="width: 90%;"/>
+                </div>
+                <div class="ui-g-3"> 
+                    <p:calendar mask="true" pattern="dd/MM/yyyy" timeOnly="false" id="dataNascimento" placeholder="Data de Nascimento"
+                               value="#{usuarioMB.usuario.dataNascimento}" style="width: 50%"/>
+                </div>
+                <div class="ui-g-1"/>
+                
+                
+                <div class="ui-g-5">                
+                    <p:inputMask mask="(99) 9 9999-9999" id="telefone" value="#{usuarioMB.usuario.telefone}"
+                                 placeholder="Telefone" style="width: 90%"/>
+                </div>
+                <div class="ui-g-5">
+                <p:inputText id="senha" value="#{usuarioMB.usuario.senha}" placeholder="Senha"
+                             style="width: 100%"/>
+                </div>
+                <div class="ui-g-1"/>
+            </div>
+            <div align="center" style="margin-top: 20px;">
+                <p:commandButton value="Salvar" icon="ui-icon-check"  
+                                 action="#{usuarioMB.inserir()}"
+                                 style="width: 150px; margin-right: 20px;"
+                                 update="growl"/>
+                <p:commandButton value="Cancelar" icon="ui-icon-close" 
+                                 action="#{usuarioMB.cancelar()}" 
+                                 immediate="true" style="width: 150px;"/>
+            </div>
+            <
+        </ui:define>
+    </ui:composition>
+</html>
+
