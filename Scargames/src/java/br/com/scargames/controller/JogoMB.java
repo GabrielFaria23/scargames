@@ -4,8 +4,10 @@ import br.com.scargames.domain.Jogo;
 import br.com.scargames.services.JogoService;
 import br.com.scargames.util.UtilMessages;
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
 import javax.faces.bean.ManagedBean;
@@ -16,6 +18,7 @@ import javax.faces.bean.SessionScoped;
 public class JogoMB implements Serializable{
 
     private Jogo jogo;
+    String preco = "";
     private List<Jogo> jogos;
     
     public JogoMB() {
@@ -56,6 +59,15 @@ public class JogoMB implements Serializable{
         }
     }
     
+     public void formatoPreco() {  
+        DecimalFormat df = (DecimalFormat) DecimalFormat.getCurrencyInstance(Locale.US);
+        ((DecimalFormat)df).applyPattern("0.00");
+        double formatar = Double.parseDouble(preco);
+        
+        String numero = df.format(formatar);
+        preco = numero;
+    }
+    
     public String carregarDados(Jogo jogo){
         this.jogo = jogo;
         return "alter.xhtml?faces-redirect=true";
@@ -92,4 +104,13 @@ public class JogoMB implements Serializable{
     public void setJogos(List<Jogo> jogos) {
         this.jogos = jogos;
     }
+
+    public String getPreco() {
+        return preco;
+    }
+
+    public void setPreco(String preco) {
+        this.preco = preco;
+    }
+    
 }

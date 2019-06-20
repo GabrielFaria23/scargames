@@ -50,11 +50,9 @@
                 </div>
                 <div class="ui-g-1"></div>
                 <div class="ui-g-3">
-                    <p:inputText id="preco" placeholder="Preco"
-                                 value="#{jogoMB.preco}"
-                                 style="width: 95%;">
-                        <p:ajax event="keyup" update="preco" listener="#{jogoMB.formatoPreco()}"/>
-                    </p:inputText>
+                    <p:inputText id="nota" placeholder="Nota"
+                                 value="#{jogoMB.jogo.nota}"
+                                 style="width: 95%;"/>
                 </div>
                 <div class="ui-g-1"></div>
                 

@@ -1,22 +1,28 @@
 package br.com.scargames.controller;
 
+import br.com.scargames.domain.Cidade;
+import br.com.scargames.domain.Endereco;
 import br.com.scargames.domain.Usuario;
 import br.com.scargames.domain.Usuario;
 import br.com.scargames.services.UsuarioService;
 import br.com.scargames.services.UsuarioService;
 import br.com.scargames.util.UtilMessages;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import org.primefaces.PrimeFaces;
 
 @ManagedBean(name = "usuarioMB")
 @SessionScoped
 public class UsuarioMB implements Serializable{
 
     private Usuario usuario;
+    private Endereco endereco;
+    private List<Endereco> enderecos = new ArrayList<>();
     private List<Usuario> usuarios;
     private String email;
     private String senha;
@@ -28,6 +34,7 @@ public class UsuarioMB implements Serializable{
     
     public UsuarioMB() {
         this.listar();
+        endereco = new Endereco();
     }
     
     public void inicializarHibernate(){
@@ -43,6 +50,20 @@ public class UsuarioMB implements Serializable{
     public String novo(){
         usuario = new Usuario();
         return "new.xhtml?faces-redirect=true";
+    }
+    
+    public void inserirEnd(){
+        //endereco = new Endereco();
+        if(enderecos.add(endereco)){
+            PrimeFaces current = PrimeFaces.current();
+            current.executeScript("PF('dlg1').hide();");
+        }else{
+            System.out.println("ERRO");
+        }
+    }
+    
+    public void listarEnderecos(){
+        
     }
     
     public String inserir(){
@@ -87,6 +108,10 @@ public class UsuarioMB implements Serializable{
     }
     
     public String cancelar(){
+        return "list.xhtml?faces-redirect=true";
+    }
+    
+    public String cancelarEnd(){
         return "list.xhtml?faces-redirect=true";
     }
     
@@ -171,6 +196,22 @@ public class UsuarioMB implements Serializable{
 
     public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public List<Endereco> getEnderecos() {
+        return enderecos;
+    }
+
+    public void setEnderecos(List<Endereco> enderecos) {
+        this.enderecos = enderecos;
     }
     
 }
